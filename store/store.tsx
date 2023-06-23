@@ -2,7 +2,7 @@ import { configureStore } from "@reduxjs/toolkit";
 import newsData from "./features/Slice";
 
 export const store = configureStore({
-  reducer: newsData,
+  reducer: { app: newsData },
 });
 
 export type RootState = ReturnType<typeof store.getState>;

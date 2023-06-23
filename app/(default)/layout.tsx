@@ -2,23 +2,25 @@
 
 import { store } from "store/store";
 import { Provider } from "react-redux";
-
-import { useState, useEffect } from "react";
-import { useAppDispatch, useAppSelector } from "@/store/usedTypedSelector";
-import { NewsData } from "@/types/sanity-client-type";
-import { getAllNews } from "@/store/features/Slice";
+import { useEffect, useState } from "react";
+import { NewsData } from "types/sanity-client-type";
 
 import AOS from "aos";
 import "aos/dist/aos.css";
 
 import PageIllustration from "@/components/page-illustration";
 import Footer from "@/components/ui/footer";
+import { getAllNews } from "@/store/features/Slice";
+import { get } from "http";
+import { getNews } from "@/sanity/sanity-client";
 
 export default function DefaultLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const [allNews, setAllNews] = useState<NewsData[] | any>();
+
   useEffect(() => {
     AOS.init({
       once: true,
@@ -28,17 +30,24 @@ export default function DefaultLayout({
     });
   });
 
+  useEffect(() => {
+    async function newsFetch() {
+      let News = await getNews();
+      console.log(News);
+    }
+    newsFetch();
+  }, []);
+  console.log(allNews);
+
   return (
     <>
-      <Provider store={store}>
-        <main className="grow">
-          <PageIllustration />
+      <main className="grow">
+        <PageIllustration />
 
-          {children}
-        </main>
+        {children}
+      </main>
 
-        <Footer />
-      </Provider>
+      <Footer />
     </>
   );
 }
