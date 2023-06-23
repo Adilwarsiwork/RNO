@@ -17,7 +17,7 @@ import News from "@/components/news";
 import Newsletter from "@/components/newsletter";
 import Newsvideos from "@/components/Newsvideos";
 
-import { NewsFetch } from "@/components/NewsFetchingHooks";
+// import { NewsFetch } from "@/components/NewsFetchingHooks";
 
 export default function Home() {
   return (
