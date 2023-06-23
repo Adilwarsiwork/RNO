@@ -4,8 +4,8 @@ import { Inter, Architects_Daughter } from "next/font/google";
 
 import Header from "@/components/ui/header";
 
-import { store } from "../store/store";
-import { Provider } from "react-redux";
+// import { store } from "../store/store";
+// import { Provider } from "react-redux";
 
 const inter = Inter({
   subsets: ["latin"],

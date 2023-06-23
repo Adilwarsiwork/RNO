@@ -1,11 +1,11 @@
-import { configureStore } from "@reduxjs/toolkit";
-import newsData from "./features/Slice";
+// import { configureStore } from "@reduxjs/toolkit";
+// import newsData from "./features/Slice";
 
-export const store = configureStore({
-  reducer: { app: newsData },
-});
+// export const store = configureStore({
+//   reducer: { app: newsData },
+// });
 
-export type RootState = ReturnType<typeof store.getState>;
-export type AppDispatch = typeof store.dispatch;
+// export type RootState = ReturnType<typeof store.getState>;
+// export type AppDispatch = typeof store.dispatch;
 
-export default store;
+// export default store;
