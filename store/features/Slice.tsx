@@ -1,4 +1,4 @@
-import { getNews } from "@/sanity/sanity-client";
+import { getNews } from "@/app/sanity/sanity-client";
 import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
 import { NewsData } from "@/types/sanity-client-type";
 

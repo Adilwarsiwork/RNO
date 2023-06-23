@@ -1,5 +1,5 @@
 import { NewsData } from "@/types/sanity-client-type";
-import { createClient, groq } from "next-sanity";
+import { createClient } from "next-sanity";
 
 export async function getNews(): Promise<NewsData[]> {
   const client = createClient({
@@ -12,7 +12,7 @@ export async function getNews(): Promise<NewsData[]> {
   });
 
   return client.fetch(
-    groq`*[_type=="news"]{newsTitle,
+    `*[_type=="news"]{newsTitle,
        newsLongDescription,
        newsShortDescription,
        "id":_id,

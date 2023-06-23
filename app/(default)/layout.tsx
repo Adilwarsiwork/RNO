@@ -12,7 +12,7 @@ import PageIllustration from "@/components/page-illustration";
 import Footer from "@/components/ui/footer";
 import { getAllNews } from "@/store/features/Slice";
 import { get } from "http";
-import { getNews } from "@/sanity/sanity-client";
+import { getNews } from "@/app/sanity/sanity-client";
 
 export default function DefaultLayout({
   children,
