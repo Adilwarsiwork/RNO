@@ -10,9 +10,12 @@ import "aos/dist/aos.css";
 
 import PageIllustration from "@/components/page-illustration";
 import Footer from "@/components/ui/footer";
-import { getAllNews } from "@/store/features/Slice";
 import { get } from "http";
-import { getNews } from "@/app/sanity/sanity-client";
+
+import { getPosts } from "../client";
+
+// import { getAllNews } from "@/store/features/Slice";
+// import { getNews } from "@/app/sanity/sanity-client";
 
 export default function DefaultLayout({
   children,
@@ -31,12 +34,14 @@ export default function DefaultLayout({
   });
 
   useEffect(() => {
-    async function newsFetch() {
-      let News = await getNews();
-      console.log(News);
+    async function fetchData() {
+      let result = await getPosts("news");
+      setAllNews(result);
     }
-    newsFetch();
+
+    fetchData();
   }, []);
+
   console.log(allNews);
 
   return (
