@@ -1,5 +1,3 @@
-"use client";
-
 import "./css/style.css";
 
 import { Inter, Architects_Daughter } from "next/font/google";
@@ -37,12 +35,10 @@ export default function RootLayout({
       <body
         className={`${inter.variable} ${architects_daughter.variable} font-inter antialiased bg-gray-900 text-gray-200 tracking-tight`}
       >
-        <Provider store={store}>
-          <div className="flex flex-col min-h-screen overflow-hidden">
-            <Header />
-            {children}
-          </div>
-        </Provider>
+        <div className="flex flex-col min-h-screen overflow-hidden">
+          <Header />
+          {children}
+        </div>
       </body>
     </html>
   );

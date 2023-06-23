@@ -1,5 +1,8 @@
 "use client";
 
+import { store } from "store/store";
+import { Provider } from "react-redux";
+
 import { useState, useEffect } from "react";
 import { useAppDispatch, useAppSelector } from "@/store/usedTypedSelector";
 import { NewsData } from "@/types/sanity-client-type";
@@ -16,8 +19,6 @@ export default function DefaultLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const [allNews, setAllNewss] = useState<NewsData[] | any>("Hello");
-
   useEffect(() => {
     AOS.init({
       once: true,
@@ -27,29 +28,17 @@ export default function DefaultLayout({
     });
   });
 
-  //Redux fetching start
-  const dispatch = useAppDispatch();
-
-  useEffect(() => {
-    dispatch(getAllNews());
-    // console.log("console here");
-  }, [dispatch]);
-
-  const { news, error, loading } = useAppSelector((state) => state);
-
-  // console.log(allNews);
-  console.log(news);
-  //Redux fetching end
-
   return (
     <>
-      <main className="grow">
-        <PageIllustration />
+      <Provider store={store}>
+        <main className="grow">
+          <PageIllustration />
 
-        {children}
-      </main>
+          {children}
+        </main>
 
-      <Footer />
+        <Footer />
+      </Provider>
     </>
   );
 }
