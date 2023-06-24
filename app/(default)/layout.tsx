@@ -1,7 +1,10 @@
 "use client";
 
+// import { getAllNews } from "@/store/features/Slice";
+// import { getNews } from "@/app/sanity/sanity-client";
 // import { store } from "store/store";
 // import { Provider } from "react-redux";
+
 import { useEffect, useState } from "react";
 import { NewsData } from "types/sanity-client-type";
 
@@ -13,9 +16,6 @@ import Footer from "@/components/ui/footer";
 import { get } from "http";
 
 import { getPosts } from "../client";
-
-// import { getAllNews } from "@/store/features/Slice";
-// import { getNews } from "@/app/sanity/sanity-client";
 
 export default function DefaultLayout({
   children,
